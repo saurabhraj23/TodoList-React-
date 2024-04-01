@@ -4,25 +4,24 @@ import AddTodo from "./components/AddTodo";
 import "./App.css";
 import AddItems from "./components/AddItems";
 import { useState } from "react";
+import { Welcome } from "./components/Welcome";
 
 function App() {
-  const [NameVal, setNameVal] = useState([]);
-  const [DateVal, setDateVal] = useState([]);
-
+  const [DataVal, setDataVal] = useState([]);
   function handleFun(data) {
-    let temp0 = [...NameVal, data[0]];
-    setNameVal(temp0);
-    let temp1 = [...DateVal, data[1]];
-    setDateVal(temp1);
+    let temp = [];
+    console.log(DataVal);
+    data.name.length !== 0
+      ? !DataVal.some((obj) => obj.name === data.name && obj.date === data.date)
+        ? ((temp = [...DataVal, data]), setDataVal(temp))
+        : alert("Same data is already present")
+      : alert("Input is blank");
   }
 
   function handleDel(idx) {
-    let t = [...NameVal];
-    t.splice(idx, 1);
-    let u = [...DateVal];
-    u.splice(idx, 1);
-    setNameVal(t);
-    setDateVal(u);
+    let del = [...DataVal];
+    del.splice(idx, 1);
+    setDataVal(del);
   }
 
   return (
@@ -31,10 +30,12 @@ function App() {
       <AddTodo handleFun={handleFun} />
       {/* <AddListTodo /> */}
       {/* <AddItems AddName="Abcd" AddDate="24/08/2023" /> */}
-      {NameVal.map((i, idx) => (
+      {DataVal.length === 0 ? <Welcome /> : null}
+      {DataVal.map((i, idx) => (
         <AddItems
-          AddName={i}
-          AddDate={DateVal[idx]}
+          key={idx}
+          AddName={i.name}
+          AddDate={i.date}
           handleDel={() => handleDel(idx)}
         />
       ))}
