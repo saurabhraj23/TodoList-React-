@@ -1,0 +1,79 @@
+.main-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.card-div{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    padding: 0 1%;
+}
+
+.heading{
+font-size: 40px;
+}
+
+.time{
+font-size: 20px;
+margin: 2px;
+}
+
+.date{
+margin-top: 2px;
+font-size: 20px;
+}
+
+.form{
+border: 1px solid blue;
+min-width: 100%;
+display: flex;
+flex-wrap: nowrap;
+}
+
+.inputText{
+width: 50%;
+margin: 2%;
+}
+
+.inputDate{
+width: 50%;
+margin: 2%;
+
+}
+
+.addButton{
+    margin: 2%;
+    width: 80px;
+    height: 25px;
+}
+
+.itemDiv{
+border: 1px solid yellow;
+width: 100%;
+/* display: flex; */
+float: right;
+}
+.itemText{
+margin:2%;
+float: left;
+font-size: 20px;
+font-weight: 4;
+;
+}
+.itemDate{
+margin: 2%;
+float: right;
+font-size: 20px;
+font-weight: 4;
+}
+.delButton{
+margin: 2%;
+float: right;
+height: 25px;
+}
